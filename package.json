@@ -1,0 +1,35 @@
+{
+  "name": "colorific",
+  "version": "1.0.0",
+  "description": "Colorific is a lightweight and easy-to-use Node.js library that adds beautiful, customizable colors to your console logs. Whether you're debugging or just want to make your terminal outputs pop, Colorific gives you full control over color schemes and styles to brighten up your development workflow.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshdhankhar10/Colorific.git"
+  },
+  "bugs": {
+    "url": "https://github.com/harshdhankhar10/Colorific/issues"
+  },
+  "homepage": "https://github.com/harshdhankhar10/Colorific#readme",
+  "keywords": [
+    "color",
+    "console",
+    "log",
+    "styles",
+    "terminal",
+    "debugging"
+  ],
+  "author": "Harsh <dhankhar14804@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "files": ["lib/**/*"]
+}
