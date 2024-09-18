@@ -1,5 +1,5 @@
 {
-  "name": "colorific",
+  "name": "colorific-magic",
   "version": "1.0.0",
   "description": "Colorific is a lightweight and easy-to-use Node.js library that adds beautiful, customizable colors to your console logs. Whether you're debugging or just want to make your terminal outputs pop, Colorific gives you full control over color schemes and styles to brighten up your development workflow.",
   "main": "lib/index.js",
