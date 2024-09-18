@@ -1,30 +1,42 @@
 
-# 🌈 Colorific Magic - Add Color to Your Console Logs!
+## 🌈 Colorific Magic - Add Color to Your Console Logs!
 
-[![npm version](https://badge.fury.io/js/colorific-magic.svg)](https://www.npmjs.com/package/colorific-magic)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/<your-username>/colorific-magic.svg?branch=main)](https://travis-ci.org/<your-username>/colorific-magic)
+# Description
+Colorific Magic is a lightweight and customizable Node.js library that adds beautiful, customizable colors and styles to your console logs. Whether you're debugging or just want to make your terminal outputs pop, Colorific gives you full control over color schemes and styles to brighten up your development workflow.
 
-## Description
+# Features
+🎨 Color-Coded Logs: Different styles for success, danger, info, and more.
+🌟 Custom Styles: Customize text color, background, borders, shadows, and more.
+💡 Simple API: Easy-to-use static methods for different log types.
+🚀 Lightweight and Fast: Minimal footprint, easy integration.
 
-**Colorific Magic** is a lightweight and customizable Node.js library that adds beautiful, customizable colors and styles to your console logs. Whether you're debugging or just want to make your terminal outputs pop, Colorific gives you full control over color schemes and styles to brighten up your development workflow.
-
-## Features
-
-- 🎨 **Color-Coded Logs**: Different styles for success, danger, info, and more.
-- 🌟 **Custom Styles**: Customize text color, background, borders, shadows, and more.
-- 💡 **Simple API**: Easy-to-use static methods for different log types.
-- 🚀 **Lightweight and Fast**: Minimal footprint, easy integration.
+# Table of contents
+- [Usage](#usage)
+  - [Success Messages](#success-messages)
+  - [Danger/Error Messages](#dangerdanger-messages)
+  - [Info Messages](#info-messages)
+  - [Warning Messages](#warning-messages)
+  - [Debugging Messages](#debugging-messages)
+  - [Success with Borders](#success-with-borders)
+  - [Neutral Messages](#neutral-messages)
+  - [Custom Styles](#custom-styles)
+  - [Gradient Text](#gradient-text-webkit-based-browsers)
+  - [Shadowed Text](#shadowed-text)
+  - [Rainbow Text](#rainbow-text)
+  - [Background Variations](#background-variations)
+  - [Fancy Styles](#fancy-styles)
+- [License](#license)
+- [Contributing](#contributing)
 
 ## Installation
 
-You can install **Colorific Magic** via npm:
+To install the Colorific Magic library, use npm:
 
 ```bash
 npm install colorific-magic
 ```
 
-Or, using yarn:
+Or, if you prefer yarn:
 
 ```bash
 yarn add colorific-magic
@@ -32,138 +44,165 @@ yarn add colorific-magic
 
 ## Usage
 
-After installing the package, you can import and use the `log` class to display styled console messages for success, danger, info, warnings, and more. Here's how:
+Import the `log` class from the `colorific-magic` package and start using its methods to style your console logs.
 
-### Basic Example
-
-```javascript
+```js
 const { log } = require('colorific-magic');
-
-// Success log
-log.success('Success! The operation was completed successfully.');
-
-// Error log
-log.danger('Error! Something went wrong.');
-
-// Info log
-log.info('FYI: This is an informational message.');
-
-// Custom log with custom colors
-log.custom('Custom styled message!', 'purple', 'yellow');
 ```
 
-### Available Methods
+### Success Messages
 
-#### 1. **`log.success(message)`**
-Logs a success message in green.
-```javascript
-log.success('Operation completed successfully!');
+```js
+log.success('Operation was successful!');
+log.successLight('Light green success message');
+log.successBg('Success message with green background');
 ```
 
-#### 2. **`log.danger(message)`**
-Logs a danger or error message in red.
-```javascript
-log.danger('Error! Failed to complete the operation.');
+- **`success(msg: string)`**: Logs a success message in green with bold font.
+- **`successLight(msg: string)`**: Logs a success message in light green with bold font.
+- **`successBg(msg: string)`**: Logs a success message with a green background and white text.
+
+### Danger/Error Messages
+
+```js
+log.danger('An error occurred!');
+log.dangerBg('Error message with red background');
+log.dangerOutline('Error message with red outline');
 ```
 
-#### 3. **`log.info(message)`**
-Logs an informational message with black text and a yellow background.
-```javascript
-log.info('This is some useful information.');
+- **`danger(msg: string)`**: Logs an error message in red with bold font.
+- **`dangerBg(msg: string)`**: Logs an error message with a red background and white text.
+- **`dangerOutline(msg: string)`**: Logs an error message with a red border.
+
+### Info Messages
+
+```js
+log.info('This is an informational message.');
+log.infoLight('Yellow info message on black background');
+log.infoBlue('Informational message in blue');
 ```
 
-#### 4. **`log.warning(message)`**
-Logs a warning message in orange.
-```javascript
-log.warning('Warning! This might cause issues.');
+- **`info(msg: string)`**: Logs an informational message with black text on a yellow background.
+- **`infoLight(msg: string)`**: Logs an informational message with yellow text on a black background.
+- **`infoBlue(msg: string)`**: Logs an informational message in blue with bold font.
+
+### Warning Messages
+
+```js
+log.warning('This is a warning!');
+log.warningBg('Warning message with orange background');
+log.warningOutline('Warning message with orange outline');
 ```
 
-#### 5. **`log.custom(message, textColor, backgroundColor)`**
-Logs a message with custom text and background colors.
-```javascript
-log.custom('Custom message with styling!', 'blue', 'white');
+- **`warning(msg: string)`**: Logs a warning message in orange with bold font.
+- **`warningBg(msg: string)`**: Logs a warning message with an orange background and white text.
+- **`warningOutline(msg: string)`**: Logs a warning message with an orange border.
+
+### Debugging Messages
+
+```js
+log.debug('Debugging message in blueviolet');
+log.debugBg('Debugging message with blueviolet background');
+log.debugShadow('Debugging message with shadow');
 ```
 
-#### 6. **`log.notice(message)`**
-Logs a notice message with blue text.
-```javascript
-log.notice('Notice: Please update your dependencies.');
+- **`debug(msg: string)`**: Logs a debugging message in blueviolet with bold font.
+- **`debugBg(msg: string)`**: Logs a debugging message with a blueviolet background and white text.
+- **`debugShadow(msg: string)`**: Logs a debugging message with a shadow effect.
+
+### Success with Borders
+
+```js
+log.successWithBorder('Success message with border');
+log.successBgWithBorder('Success message with green background and border');
 ```
 
-#### 7. **`log.successWithBorder(message)`**
-Logs a success message with a green border and background.
-```javascript
-log.successWithBorder('Success! Task completed with style.');
+- **`successWithBorder(msg: string)`**: Logs a success message with a green border.
+- **`successBgWithBorder(msg: string)`**: Logs a success message with a green background and a dark green border.
+
+### Neutral Messages
+
+```js
+log.neutral('This is a neutral message.');
+log.neutralBg('Neutral message with gray background');
+log.neutralShadow('Neutral message with shadow');
 ```
 
-#### 8. **`log.errorWithShadow(message)`**
-Logs an error message with a red shadow effect.
-```javascript
-log.errorWithShadow('Critical Error! System failure imminent.');
+- **`neutral(msg: string)`**: Logs a neutral message in gray.
+- **`neutralBg(msg: string)`**: Logs a neutral message with a gray background and white text.
+- **`neutralShadow(msg: string)`**: Logs a neutral message with a shadow effect.
+
+### Custom Styles
+
+```js
+log.custom('Custom styled message', 'pink', 'black');
+log.bold('This is a bold message');
+log.italic('This is an italic message');
+log.underline('This is an underlined message');
+log.strikethrough('This is a strikethrough message');
 ```
 
-#### 9. **`log.gradient(message)`**
-Logs a message with gradient text colors.
-```javascript
-log.gradient('Gradient: Beautiful rainbow message.');
+- **`custom(msg: string, color: string, bgColor: string)`**: Logs a message with custom text and background colors.
+- **`bold(msg: string)`**: Logs a bold message in black.
+- **`italic(msg: string)`**: Logs an italic message in blue.
+- **`underline(msg: string)`**: Logs an underlined message in purple with bold font.
+- **`strikethrough(msg: string)`**: Logs a message with a strikethrough effect in red with bold font.
+
+### Gradient Text (WebKit-based browsers)
+
+```js
+log.gradientText('This text has a gradient color!');
 ```
 
-#### 10. **`log.inverse(message)`**
-Logs a message with inverse text and background colors.
-```javascript
-log.inverse('Inverted colors log message.');
+- **`gradientText(msg: string)`**: Logs a message with a gradient text color effect.
+
+### Shadowed Text
+
+```js
+log.shadowText('This text has a shadow effect.');
 ```
 
-### Advanced Example
+- **`shadowText(msg: string)`**: Logs a message with a shadow effect.
 
-```javascript
-const { log } = require('colorific-magic');
+### Rainbow Text
 
-// Display success with a border
-log.successWithBorder('Success!');
-
-// Display error with shadow
-log.errorWithShadow('An error occurred.');
-
-// Gradient log example
-log.gradient('This message has a gradient!');
-
-// Inverse color log
-log.inverse('Inverted text and background color.');
+```js
+log.rainbowText('Rainbow-colored text');
 ```
 
-### Customization
+- **`rainbowText(msg: string)`**: Logs a message with rainbow-colored text.
 
-You can define custom styles for your logs by using any valid CSS colors (like `blue`, `green`, `#FF5733`, etc.). Feel free to add your own styles to the logs by using the `log.custom()` method.
+### Background Variations
 
-## API
+```js
+log.darkBg('Text on a dark background');
+log.lightBg('Text on a light background');
+log.blueBg('Text with a blue background');
+```
 
-| Method                | Description                                      | Default Style                       |
-|-----------------------|--------------------------------------------------|-------------------------------------|
-| `log.success(msg)`     | Logs a success message                           | Green text                          |
-| `log.danger(msg)`      | Logs a danger/error message                      | Red text                            |
-| `log.info(msg)`        | Logs an informational message                    | Black text on a yellow background   |
-| `log.warning(msg)`     | Logs a warning message                           | Orange text                         |
-| `log.custom(msg, textColor, backgroundColor)` | Logs a custom message with user-defined colors | Customizable                         |
-| `log.notice(msg)`      | Logs a notice message                            | Blue text                           |
-| `log.successWithBorder(msg)` | Logs a success message with green border   | Green text with border              |
-| `log.errorWithShadow(msg)`  | Logs an error message with a red shadow    | Red text with shadow                |
-| `log.gradient(msg)`    | Logs a message with gradient text                | Gradient color                      |
-| `log.inverse(msg)`     | Logs a message with inverted text and background | Inverted colors                     |
+- **`darkBg(msg: string)`**: Logs a message with white text on a black background.
+- **`lightBg(msg: string)`**: Logs a message with black text on a white background.
+- **`blueBg(msg: string)`**: Logs a message with white text on a blue background.
+
+### Fancy Styles
+
+```js
+log.fancyShadow('Fancy message with shadow');
+log.fancyBorder('Fancy message with dashed border');
+log.fancyBgWithShadow('Fancy message with dark background and shadow');
+```
+
+- **`fancyShadow(msg: string)`**: Logs a message with magenta text and shadow effect.
+- **`fancyBorder(msg: string)`**: Logs a message with a purple dashed border.
+- **`fancyBgWithShadow(msg: string)`**: Logs a message with a dark blue background and shadow effect.
 
 ## License
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository, make your changes, and submit a pull request. For major changes, open an issue to discuss what you would like to change.
+We welcome contributions to the Colorific Magic library! Feel free to submit pull requests or open issues for improvements, bug fixes, or feature requests.
 
-## Support
-
-If you encounter any issues, feel free to open an issue on GitHub or contact me directly via email.
-
-## Author
-
-- **Harsh** - [GitHub](https://github.com/<harshdhankhar10>)
+For detailed guidelines on contributing, please refer to the [CONTRIBUTING](CONTRIBUTING.md) file.
 
